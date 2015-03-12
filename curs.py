@@ -4,7 +4,7 @@ import numpy
 from time import sleep
 n_points  = 9
 l_period  = 12
-t_refresh = 0.1
+t_refresh = 1.0/20
 
 scr = curses.initscr()
 curses.start_color()
@@ -15,13 +15,15 @@ middle, barline = max(enumerate(lines), key=lambda tup: tup[1].count("="))
 barlength = barline.count("=")
 maxheight = min(middle-1, len(lines)-1-middle) 
 
-chr_per_x = (barlength * l_period) / (numpy.pi*n_points)
+total_x = numpy.pi * n_points / (l_period / 2.0)
+chr_per_x = barlength/total_x
+#chr_per_x = (barlength * l_period) / (numpy.pi*n_points)
 #x_per_chr = 2
 scr.addstr(0,0,logo)
 scr.addstr(middle, 0, barline, curses.COLOR_GREEN)
 scr.refresh()
 sleep(0.200)
-X = numpy.linspace(-numpy.pi/l_period*4, numpy.pi/l_period*4, n_points)
+X = numpy.linspace(-total_x/2, total_x/2, n_points)
 x_off = 0
 while(True):
 	Y = numpy.sin(X+x_off)
