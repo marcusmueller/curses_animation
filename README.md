@@ -33,4 +33,4 @@ SOFTWARE.
 ettus.logo.*
 ============
 
-An ASCII-fied Ettus Logo. All rights Ettus Research LLC, the ASCII-artist is Mr. Martin Braun.
+An ASCII-fied Ettus Logo. All rights Ettus Research LLC, the ASCII-artist is Dr-Ing. Martin Braun.
